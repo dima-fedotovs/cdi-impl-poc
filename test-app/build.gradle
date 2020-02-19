@@ -1,0 +1,15 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+dependencies {
+    implementation project(':engine')
+    annotationProcessor project(':engine')
+}
+
+mainClassName = 'guru.bug.cdipoc.app.Main'
+
+tasks.withType(JavaCompile) {
+    options.compilerArgs += ["-Xplugin:PoCCompilerPlugin"]
+}
